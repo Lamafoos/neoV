@@ -39,7 +39,9 @@ return require('packer').startup(function()
   }	
 
   -- Theme
-  use 'tomasr/molokai'
+  use ({"catppuccin/nvim",
+as = "catppuccin"
+  }) 
 
 
 use "p00f/nvim-ts-rainbow"
