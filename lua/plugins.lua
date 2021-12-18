@@ -39,28 +39,33 @@ return require('packer').startup(function()
   }	
 
   -- Theme
-  use ({"catppuccin/nvim",
-as = "catppuccin"
-  }) 
+  use {
+	"catppuccin/nvim",
+	as = "catppuccin"
+	} 
 
 
 use "p00f/nvim-ts-rainbow"
   -- Treesitter
-    use {'nvim-treesitter/nvim-treesitter',
-    run = ":TSUpdate"}
+    use {
+	'nvim-treesitter/nvim-treesitter',
+	run = ":TSUpdate"
+	}
     
   -- LSP
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
 
-     -- VCS
+     -- Git
+     use {
+	'tpope/vim-fugitive',  
+        event = "UIEnter"
+	}
+
     use {
-        'lewis6991/gitsigns.nvim',
-        opt = true,
-        -- after = "vim-fugitive",
-        requires = {'nvim-lua/plenary.nvim'},
-        config = function() require'gitsigns'.setup() end
-    }
+	"lewis6991/gitsigns.nvim", 
+        requires = { "nvim-lua/plenary.nvim" }
+        }
     
   -- Completion
     use { 

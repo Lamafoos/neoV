@@ -15,5 +15,4 @@ w.foldmethod = 'expr'
 -- Global scope
 o.smarttab = true
 o.smartindent = true
-
-
+g.colors_name = 'catppuccin'

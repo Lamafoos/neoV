@@ -1,6 +1,33 @@
-vim.opt.expandtab = true
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
+require('gitsigns').setup {
+  signs = {
+    add = {
+      hl = "DiffAdd",
+      text = "+",
+      numhl = "GitSignsAddNr",
+    },
+    change = {
+      hl = "DiffChange",
+      text = "•",
+      numhl = "GitSignsChangeNr",
+    },
+    delete = {
+      hl = "DiffDelete",
+      text = "-",
+      numhl = "GitSignsDeleteNr",
+    },
+    topdelete = {
+      hl = "DiffDelete",
+      text = "‾",
+      numhl = "GitSignsDeleteNr",
+    },
+    changedelete = {
+      hl = "DiffChange",
+      text = "~",
+      numhl = "GitSignsChangeNr",
+    },
+  },
+  numhl = true,
+  current_line_blame = true
+}
 
-vim.g.colors_name = 'catppuccin'
-require "treesitter"
+require('treesitter')
