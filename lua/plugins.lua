@@ -52,6 +52,15 @@ use "p00f/nvim-ts-rainbow"
   -- LSP
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
+
+     -- VCS
+    use {
+        'lewis6991/gitsigns.nvim',
+        opt = true,
+        -- after = "vim-fugitive",
+        requires = {'nvim-lua/plenary.nvim'},
+        config = function() require'gitsigns'.setup() end
+    }
     
   -- Completion
     use { 
@@ -67,5 +76,11 @@ use "p00f/nvim-ts-rainbow"
         },
 	config = function() require'completion'.setup() end
 	}
+        use {
+        'L3MON4D3/LuaSnip',
+        after = "nvim-cmp",
+        requires = {{"rafamadriz/friendly-snippets"}},
+        config = function() require'completion'.luasnip() end
+    }    
 end
 )
