@@ -18,14 +18,18 @@ key_map("x", "au", ':lua require"treesitter-unit".select(true)<CR>', { noremap =
 key_map("o", "iu", ':<c-u>lua require"treesitter-unit".select()<CR>', { noremap = true })
 key_map("o", "au", ':<c-u>lua require"treesitter-unit".select(true)<CR>', { noremap = true })
 
--- one of teh greatest commands ever
+-- one of the greatest commands ever
 key_map("n", "<space>t", ":TSHighlightCapturesUnderCursor<CR>", { noremap = true, silent = true })
 
 -- Move between Vimdows
-key_map("n", "<up>", "<C-w><up>", { noremap = false })
-key_map("n", "<down>", "<C-w><down>", { noremap = false })
-key_map("n", "<left>", "<C-w><left>", { noremap = false })
-key_map("n", "<right>", "<C-w><right>", { noremap = false })
+key_map("n", "<up>", "<C-w><up>", opts)
+key_map("n", "<down>", "<C-w><down>", opts)
+key_map("n", "<left>", "<C-w><left>", opts)
+key_map("n", "<right>", "<C-w><right>", opts)
+
+-- Toggle vim-tree
+key_map('n', '<C-n>', ':NvimTreeToggle<CR>', opts)
+key_map('n', '<leader>r', ':NvimTreeRefresh<CR>', opts)
 
 
 

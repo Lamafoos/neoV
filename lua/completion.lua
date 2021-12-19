@@ -66,7 +66,6 @@ function M.setup()
 end
 
 M.luasnip = function()
-
     local luasnip = require('luasnip')
     luasnip.config.set_config {
         history = true,

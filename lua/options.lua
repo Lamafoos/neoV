@@ -15,4 +15,12 @@ w.foldmethod = 'expr'
 -- Global scope
 o.smarttab = true
 o.smartindent = true
+
+-- File explorer
+g.nvim_tree_git_hl = 1
+g.nvim_tree_refresh_wait = 300
+g.nvim_tree_special_files = {}
+g.nvim_tree_respect_buf_cwd = 1
+
+-- Theme
 g.colors_name = 'catppuccin'

@@ -38,54 +38,76 @@ return require('packer').startup(function()
   end
   }	
 
-  -- Theme
+  -- File Explorer
   use {
-	"catppuccin/nvim",
-	as = "catppuccin"
-	} 
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons',
+    },
+    config = function() require'nvim-tree'.setup {} end
+  }
 
-
-use "p00f/nvim-ts-rainbow"
   -- Treesitter
-    use {
-	'nvim-treesitter/nvim-treesitter',
-	run = ":TSUpdate"
-	}
+  use "p00f/nvim-ts-rainbow"
+      use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ":TSUpdate"
+    }
+
+  -- Telescope
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
     
   -- LSP
-    use 'neovim/nvim-lspconfig'
-    use 'williamboman/nvim-lsp-installer'
+  use 'neovim/nvim-lspconfig'
+  use 'williamboman/nvim-lsp-installer'
 
-     -- Git
-     use {
-	'tpope/vim-fugitive',  
-        event = "UIEnter"
+  -- Git
+  use {
+    'tpope/vim-fugitive',  
+    event = "UIEnter"
 	}
-
-    use {
-	"lewis6991/gitsigns.nvim", 
-        requires = { "nvim-lua/plenary.nvim" }
-        }
+  use {
+    "lewis6991/gitsigns.nvim", 
+    requires = { "nvim-lua/plenary.nvim" }
+  }
     
   -- Completion
-    use { 
+  use { 
 	'hrsh7th/nvim-cmp',
 	event = "UIEnter",
-	opt = true,
+  opt = true,
     requires = {
 		{'hrsh7th/cmp-buffer'},
 		{'hrsh7th/cmp-nvim-lsp'},
 		{'hrsh7th/cmp-path'},
 		{'hrsh7th/cmp-cmdline'},
 		{'hrsh7th/cmp-emoji'}
-        },
-	config = function() require'completion'.setup() end
+   },
+   config = function() require'completion'.setup() end
 	}
-        use {
-        'L3MON4D3/LuaSnip',
-        after = "nvim-cmp",
-        requires = {{"rafamadriz/friendly-snippets"}},
-        config = function() require'completion'.luasnip() end
-    }    
+  
+  use {
+    'L3MON4D3/LuaSnip',
+    after = "nvim-cmp",
+    requires = {{"rafamadriz/friendly-snippets"}},
+    config = function() require'completion'.luasnip() end
+    }
+
+  -- Statusline
+  use {
+    'nvim-lualine/lualine.nvim',
+    after = 'nvim-web-devicons',
+    requires = {'kyazdani42/nvim-web-devicons', opt = true}
+  }
+
+    -- Theme
+    use 'kyazdani42/nvim-web-devicons'
+    use({
+      "catppuccin/nvim",
+      as = "catppuccin"
+    })
 end
 )
