@@ -44,7 +44,6 @@ return require('packer').startup(function()
     requires = {
       'kyazdani42/nvim-web-devicons',
     },
-    config = function() require'nvim-tree'.setup {} end
   }
 
   -- Treesitter
@@ -57,7 +56,7 @@ return require('packer').startup(function()
   -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = { 'nvim-lua/plenary.nvim' }
   }
     
   -- LSP
@@ -99,15 +98,17 @@ return require('packer').startup(function()
   -- Statusline
   use {
     'nvim-lualine/lualine.nvim',
-    after = 'nvim-web-devicons',
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
 
     -- Theme
     use 'kyazdani42/nvim-web-devicons'
     use({
-      "catppuccin/nvim",
-      as = "catppuccin"
-    })
+      'rose-pine/neovim',
+      as = 'rose-pine',
+      config = function()
+          vim.cmd('colorscheme rose-pine')
+      end
+  })
 end
 )
