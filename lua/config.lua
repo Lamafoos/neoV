@@ -38,12 +38,21 @@ require'nvim-tree'.setup {
     width = 40,
     number = true,
     relativenumber = true,
-    update_to_buf_dir   = {
+    update_to_buf_dir = {
       enable = true,
       auto_open = true,
     },
+    update_focused_file = {
+      enable      = true,
+      update_cwd  = true,
+      ignore_list = {}
+    },
+
   },
 }
+
+-- Devicons
+require'nvim-web-devicons'.setup {}
 
 -- Lualine
 require('lualine').setup({
