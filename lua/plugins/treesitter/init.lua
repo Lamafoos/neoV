@@ -1,0 +1,2 @@
+-- Treesitter
+require('treesitter')

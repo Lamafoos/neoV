@@ -1,20 +1,24 @@
--- Plugins
+-- Take a gander at the setup.
+--
+-----------------------------------------------------------
+-- Import the base
+-----------------------------------------------------------
+require('settings')
+require('keymappings')
 require('plugins')
-
--- Config / Setup
-require('config')
-
--- Keybindings
-require('keybindings')
---if (vim.loop.os_uname().sysname == "Windows_NT")
-  --  require('keybindings')
---else
---    require('keybindings')
---end
-
--- Options / Settings
-require('options')
-
+-----------------------------------------------------------
+-- Plugins
+-----------------------------------------------------------
+require('plugins/alpha-nvim')
+require('plugins/gitsigns')
+require('plugins/lualine')
+require('plugins/luasnip')
+require('plugins/nvim-cmp')
+require('plugins/nvim-lspconfig')
+require('plugins/nvim-tree')
+require('plugins/telescope')
+require('plugins/treesitter')
+require('plugins/vim-fugitive')
 
 
 

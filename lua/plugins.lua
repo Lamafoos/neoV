@@ -27,15 +27,8 @@ return require('packer').startup(function()
   'goolord/alpha-nvim',
   requires = { 'kyazdani42/nvim-web-devicons' },
     config = function ()
-      require'alpha'.setup(require'alpha.themes.startify'.opts)
-      local startify = require("alpha.themes.startify")
-      startify.section.mru_cwd.val = { { type = "padding", val = 0 } }
-      startify.section.bottom_buttons.val = {
-      startify.button("e", "new file", ":ene <bar> startinsert <cr>"),
-      startify.button("v", "neovim config", ":e ~/.config/nvim/init.lua<cr>"),
-      startify.button("q", "quit nvim", ":qa<cr>"),
-    }
-  end
+      require'alpha'.setup(require'alpha.themes.dashboard'.opts)
+    end
   }	
 
   -- File Explorer
@@ -76,16 +69,12 @@ return require('packer').startup(function()
   -- Completion
   use { 
 	'hrsh7th/nvim-cmp',
-	event = "UIEnter",
-  opt = true,
     requires = {
-		{'hrsh7th/cmp-buffer'},
-		{'hrsh7th/cmp-nvim-lsp'},
+    {'hrsh7th/cmp-nvim-lsp'},
 		{'hrsh7th/cmp-path'},
+		{'hrsh7th/cmp-buffer'},
 		{'hrsh7th/cmp-cmdline'},
-		{'hrsh7th/cmp-emoji'}
    },
-   config = function() require'completion'.setup() end
 	}
   
   use {
