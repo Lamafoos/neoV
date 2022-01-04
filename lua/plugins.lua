@@ -29,7 +29,7 @@ return require('packer').startup(function()
     config = function ()
       require'alpha'.setup(require'alpha.themes.dashboard'.opts)
     end
-  }	
+  }
 
   -- File Explorer
   use {
@@ -53,25 +53,25 @@ return require('packer').startup(function()
     'nvim-telescope/telescope.nvim',
     requires = { 'nvim-lua/plenary.nvim' }
   }
-    
+
   -- LSP
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
 
   -- Git
   use {
-    'tpope/vim-fugitive',  
+    'tpope/vim-fugitive',
     event = "UIEnter"
 	}
   use {
-    "lewis6991/gitsigns.nvim", 
+    "lewis6991/gitsigns.nvim",
     requires = { "nvim-lua/plenary.nvim" }
   }
-    
+
   -- Completion
   use {'L3MON4D3/LuaSnip'}
 
-  use { 
+  use {
 	'hrsh7th/nvim-cmp',
     requires = {
     {'hrsh7th/cmp-nvim-lsp'},
@@ -81,7 +81,7 @@ return require('packer').startup(function()
    },
 	}
   use { 'saadparwaiz1/cmp_luasnip' }
-  
+
 
   -- Statusline
   use {
@@ -93,10 +93,10 @@ return require('packer').startup(function()
     use 'kyazdani42/nvim-web-devicons'
     use({
       'rose-pine/neovim',
-      as = 'rose-pine',
-      config = function()
-          vim.cmd('colorscheme rose-pine')
-      end
+    	as = 'rose-pine',
+     -- config = function()
+      --    vim.cmd('colorscheme rose-pine')
+     -- end
   })
 end
 )

@@ -11,7 +11,7 @@ local opt = vim.opt -- global/buffer/windows-scoped options
 -- General
 -----------------------------------------------------------
 if vim.loop.os_uname().sysname == "Mac_OS" then
-  g.mapleader = ','           -- change leader to a strange symbol
+  g.mapleader = '§'           -- change leader to a strange symbol
 end
 opt.mouse = 'a'               -- enable mouse support
 opt.clipboard = 'unnamedplus' -- copy/paste to system clipboard
@@ -22,7 +22,7 @@ opt.swapfile = false          -- don't use swapfile
 -----------------------------------------------------------
 opt.number = true             -- show line number
 opt.showmatch = true          -- highlight matching parenthesis
---opt.foldmethod = 'marker'     -- enable folding (default 'foldmarker')
+opt.foldmethod = 'marker'     -- enable folding (default 'foldmarker')
 -- opt.colorcolumn = '80'        -- line lenght marker at 80 columns
 opt.splitright = true         -- vertical split to the right
 opt.splitbelow = true         -- horizontal split to the bottom
@@ -38,7 +38,7 @@ cmd [[au BufWritePre * :%s/\s\+$//e]]
 exec([[
   augroup YankHighlight
     autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=700}
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=500}
   augroup end
 ]], false)
 
@@ -65,7 +65,7 @@ opt.synmaxcol = 240       -- max column for syntax highlight
 -----------------------------------------------------------
 -- File explorer
 -----------------------------------------------------------
---g.nvim_tree_git_hl = 1
+g.nvim_tree_git_hl = 1
 g.nvim_tree_refresh_wait = 300
 g.nvim_tree_special_files = {}
 g.nvim_tree_respect_buf_cwd = 1
@@ -75,3 +75,5 @@ g.nvim_tree_quit_on_open = 1
 -- Colorscheme
 -----------------------------------------------------------
 opt.termguicolors = true   -- use terminal colors
+g.rose_pine_variant = 'moon' -- moon variant
+cmd('colorscheme rose-pine')

@@ -4,7 +4,7 @@ require'nvim-tree'.setup {
   view = {
     width = 40,
     number = true,
-    relativenumber = true,
+    relativenumber = false,
     update_to_buf_dir = {
       enable = true,
       auto_open = true,
@@ -14,6 +14,5 @@ require'nvim-tree'.setup {
       update_cwd  = true,
       ignore_list = {}
     },
-
   },
 }
