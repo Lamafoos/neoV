@@ -22,10 +22,10 @@ opt.swapfile = false          -- don't use swapfile
 -----------------------------------------------------------
 opt.number = true             -- show line number
 opt.showmatch = true          -- highlight matching parenthesis
-opt.foldmethod = 'marker'     -- enable folding (default 'foldmarker')
-opt.colorcolumn = '80'        -- line lenght marker at 80 columns
--- opt.splitright = true         -- vertical split to the right
--- opt.splitbelow = true         -- horizontal split to the bottom
+--opt.foldmethod = 'marker'     -- enable folding (default 'foldmarker')
+-- opt.colorcolumn = '80'        -- line lenght marker at 80 columns
+opt.splitright = true         -- vertical split to the right
+opt.splitbelow = true         -- horizontal split to the bottom
 opt.ignorecase = true         -- ignore case letters when search
 opt.incsearch = true          -- show partial matches // I think
 opt.smartcase = true          -- ignore lowercase for the whole pattern
@@ -33,6 +33,14 @@ opt.linebreak = true          -- wrap on word boundary
 
 -- remove whitespace on save
 cmd [[au BufWritePre * :%s/\s\+$//e]]
+
+-- highlight on yank
+exec([[
+  augroup YankHighlight
+    autocmd!
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=700}
+  augroup end
+]], false)
 
 -----------------------------------------------------------
 -- Tabs, indent
@@ -57,7 +65,7 @@ opt.synmaxcol = 240       -- max column for syntax highlight
 -----------------------------------------------------------
 -- File explorer
 -----------------------------------------------------------
-g.nvim_tree_git_hl = 1
+--g.nvim_tree_git_hl = 1
 g.nvim_tree_refresh_wait = 300
 g.nvim_tree_special_files = {}
 g.nvim_tree_respect_buf_cwd = 1

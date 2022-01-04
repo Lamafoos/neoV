@@ -35,5 +35,5 @@ key_map('n', '<leader>r', ':NvimTreeRefresh<CR>', opts)
 -- key_map('n', '<leader>sh', ':vsp<CR>', opts) -- split horizontally
 -- key_map('n', '<leader>sv', ':sp<CR>', opts) -- split vertically
 
-
-
+-- open file browser
+key_map("n", "<space>ff", "<cmd>lua require 'telescope'.extensions.file_browser.file_browser()<CR>", opts)

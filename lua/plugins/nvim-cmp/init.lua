@@ -3,20 +3,14 @@
 -----------------------------------------------------------
 
 local cmp = require('cmp')
-local luasnip = require('plugins/luasnip')
+local luasnip = require('luasnip') -- maybe plugins/luasnip
 
 cmp.setup {
-  -- Load snippet support
+  -- REQUIRED: Load snippet enginge
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
     end,
-  },
-
-  -- Completion settings
-  completion = {
-    --completeopt = 'menu,menuone,noselect'
-    keyword_length = 2
   },
 
   -- Key mapping
@@ -53,9 +47,17 @@ cmp.setup {
     end
     },
 
+  -- Completion settings
+    completion = {
+      -- completeopt = 'menu,menuone,noselect',
+      keyword_length = 2
+  },
+
+
+
   sources = {
-    { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'nvim_lsp' },
     { name = 'path' },
     { name = 'buffer' },
   },

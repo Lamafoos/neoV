@@ -53,7 +53,7 @@ local on_attach = function(client, bufnr)
 end
 
 -- Language server list: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-local servers = { 'volar', 'html', 'tsserver' }
+local servers = { 'volar', 'html', 'tsserver', 'cssls' }
 
 -- tsserver settings
 local ts_settings = function(client)
@@ -67,7 +67,7 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
     ts_settings = ts_settings,
     flags = {
-      debounce_text_changes = 150,
+      debounce_text_changes = 100,
     }
   }
 end

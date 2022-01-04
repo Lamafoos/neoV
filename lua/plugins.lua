@@ -46,7 +46,9 @@ return require('packer').startup(function()
     run = ":TSUpdate"
     }
 
-  -- Telescope
+    -- Telescope Extensions
+  use { "nvim-telescope/telescope-file-browser.nvim" }
+    -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
     requires = { 'nvim-lua/plenary.nvim' }
@@ -67,6 +69,8 @@ return require('packer').startup(function()
   }
     
   -- Completion
+  use {'L3MON4D3/LuaSnip'}
+
   use { 
 	'hrsh7th/nvim-cmp',
     requires = {
@@ -76,13 +80,8 @@ return require('packer').startup(function()
 		{'hrsh7th/cmp-cmdline'},
    },
 	}
+  use { 'saadparwaiz1/cmp_luasnip' }
   
-  use {
-    'L3MON4D3/LuaSnip',
-    after = "nvim-cmp",
-    requires = {{"rafamadriz/friendly-snippets"}},
-    config = function() require'completion'.luasnip() end
-    }
 
   -- Statusline
   use {
