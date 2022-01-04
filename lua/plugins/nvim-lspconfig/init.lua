@@ -61,11 +61,18 @@ local ts_settings = function(client)
   ts_settings(client)
 end
 
+-- volar settings
+local volar_settings = function(client)
+	client.resolved_capabilities.document_formatting = false
+	volar_settings(client)
+end
+
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    ts_settings = ts_settings,
+   --	ts_settings = ts_settings,
+		--volar_settings = volar_settings,
     flags = {
       debounce_text_changes = 100,
     }

@@ -16,7 +16,8 @@ end
 opt.mouse = 'a'               -- enable mouse support
 opt.clipboard = 'unnamedplus' -- copy/paste to system clipboard
 opt.swapfile = false          -- don't use swapfile
-
+opt.spell = true							-- spellchecking
+opt.spelllang = { 'en_us' }		-- languange to spellcheck
 -----------------------------------------------------------
 -- UI
 -----------------------------------------------------------

@@ -4,6 +4,32 @@
 
 local cmp = require('cmp')
 local luasnip = require('luasnip') -- maybe plugins/luasnip
+local lspkind = require('lspkind')
+lspkind.init {
+  with_text = true,
+  symbol_map = {
+    Text = "?",
+    Method = "Ä",
+    Function = "?",
+    Constructor = "?",
+    Variable = "?",
+    Class = "?",
+    Interface = "?",
+    Module = "?",
+    Property = "?",
+    Unit = "?",
+    Value = "?",
+    Enum = "?",
+    Keyword = "?",
+    Snippet = "?",
+    Color = "?",
+    File = "?",
+    Folder = "?",
+    EnumMember = "?",
+    Constant = "?",
+    Struct = "?",
+  },
+}
 
 cmp.setup {
   -- REQUIRED: Load snippet enginge
@@ -52,13 +78,37 @@ cmp.setup {
       -- completeopt = 'menu,menuone,noselect',
       keyword_length = 2
   },
-
-
-
+  experimental = {
+    ghost_text = true,
+  },
+  documentation = {
+    border = { "?", "?", "?", "?", "?", "?", "?", "?" },
+  },
   sources = {
     { name = 'luasnip' },
     { name = 'nvim_lsp' },
     { name = 'path' },
     { name = 'buffer' },
+		{ name = 'spell' },
+  },
+	formatting = {
+		format = lspkind.cmp_format({
+      with_text = true, -- show text alongside icons
+      maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+
+      before = function (entry, vim_item)
+      vim_item.kind = string.format("%s %s", lspkind.presets.default[vim_item.kind], vim_item.kind)
+      vim_item.menu = ({
+        nvim_lsp = "?",
+        treesitter = "?",
+        path = "?",
+        buffer = "?",
+        zsh = "?",
+        luasnip = "?",
+        spell = "?",
+      })[entry.source.name]
+        return vim_item
+      end
+    })
   },
 }

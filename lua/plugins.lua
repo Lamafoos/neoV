@@ -71,6 +71,8 @@ return require('packer').startup(function()
   -- Completion
   use {'L3MON4D3/LuaSnip'}
 
+
+	use { 'onsails/lspkind-nvim' }
   use {
 	'hrsh7th/nvim-cmp',
     requires = {
@@ -78,9 +80,11 @@ return require('packer').startup(function()
 		{'hrsh7th/cmp-path'},
 		{'hrsh7th/cmp-buffer'},
 		{'hrsh7th/cmp-cmdline'},
+ 		{'saadparwaiz1/cmp_luasnip'}
+
    },
 	}
-  use { 'saadparwaiz1/cmp_luasnip' }
+ -- use { 'saadparwaiz1/cmp_luasnip' }
 
 
   -- Statusline
