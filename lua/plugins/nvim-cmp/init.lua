@@ -3,33 +3,8 @@
 -----------------------------------------------------------
 
 local cmp = require('cmp')
-local luasnip = require('luasnip') -- maybe plugins/luasnip
+local luasnip = require('luasnip')
 local lspkind = require('lspkind')
-lspkind.init {
-  with_text = true,
-  symbol_map = {
-    Text = "?",
-    Method = "�",
-    Function = "?",
-    Constructor = "?",
-    Variable = "?",
-    Class = "?",
-    Interface = "?",
-    Module = "?",
-    Property = "?",
-    Unit = "?",
-    Value = "?",
-    Enum = "?",
-    Keyword = "?",
-    Snippet = "?",
-    Color = "?",
-    File = "?",
-    Folder = "?",
-    EnumMember = "?",
-    Constant = "?",
-    Struct = "?",
-  },
-}
 
 cmp.setup {
   -- REQUIRED: Load snippet enginge
@@ -82,7 +57,7 @@ cmp.setup {
     ghost_text = true,
   },
   documentation = {
-    border = { "?", "?", "?", "?", "?", "?", "?", "?" },
+    border = { "", "", "", "", "", "", "", "" },
   },
   sources = {
     { name = 'luasnip' },
@@ -99,16 +74,17 @@ cmp.setup {
       before = function (entry, vim_item)
       vim_item.kind = string.format("%s %s", lspkind.presets.default[vim_item.kind], vim_item.kind)
       vim_item.menu = ({
-        nvim_lsp = "?",
-        treesitter = "?",
-        path = "?",
-        buffer = "?",
-        zsh = "?",
-        luasnip = "?",
-        spell = "?",
+        nvim_lsp = "",
+        treesitter = "",
+        path = "",
+        buffer = "ь",
+        zsh = "",
+        luasnip = "",
+        spell = "",
       })[entry.source.name]
         return vim_item
       end
     })
   },
 }
+

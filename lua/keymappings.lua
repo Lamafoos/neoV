@@ -30,15 +30,9 @@ key_map("n", "<right>", "<C-w><right>", opts)
 key_map('n', '<C-b>', ':NvimTreeToggle<CR>', opts)
 key_map('n', '<leader>r', ':NvimTreeRefresh<CR>', opts)
 
-
--- windows
--- key_map('n', '<leader>sh', ':vsp<CR>', opts) -- split horizontally
--- key_map('n', '<leader>sv', ':sp<CR>', opts) -- split vertically
-
-
 -- FILES
 -- Find file
-key_map("n", "<space>ff", "<cmd>lua require 'telescope'.extensions.file_browser.file_browser() prompt_prefix=🔍<CR>", opts)
+key_map("n", "<space>ff", "<cmd>lua require 'telescope'.extensions.file_browser.file_browser()<CR>", opts)
 -- Find recent
 key_map("n", "<space>fr", "<cmd>Telescope oldfiles prompt_prefix=🔍 <CR>", opts)
 -- Git branches
