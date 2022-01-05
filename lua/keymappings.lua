@@ -17,7 +17,7 @@ key_map("x", "au", ':lua require"treesitter-unit".select(true)<CR>', opts)
 key_map("o", "iu", ':<c-u>lua require"treesitter-unit".select()<CR>', opts)
 key_map("o", "au", ':<c-u>lua require"treesitter-unit".select(true)<CR>', opts)
 
--- one of the greatest commands ever
+-- shows any treesitter or syntax highlight groups under the cursor
 key_map("n", "<space>t", ":TSHighlightCapturesUnderCursor<CR>", opts)
 
 -- Move between Vimdows
