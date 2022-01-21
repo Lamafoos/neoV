@@ -51,9 +51,9 @@ opt.tabstop = 4           -- 1 tab == 4 spaces
 opt.smartindent = true    -- autoindent new lines
 
 -- 2 spaces for selected filetypes
-cmd [[
-  autocmd FileType xml,html,xhtml,css,scss,javascript,lua,yaml setlocal shiftwidth=2 tabstop=2
-]]
+-- cmd [[
+--   autocmd FileType xml,html,xhtml,css,scss,javascript,lua,yaml setlocal shiftwidth=2 tabstop=2
+-- ]]
 
 -----------------------------------------------------------
 -- Memory, CPU
@@ -78,3 +78,21 @@ g.nvim_tree_quit_on_open = 1
 opt.termguicolors = true   -- use terminal colors
 g.rose_pine_variant = 'moon' -- moon variant
 cmd('colorscheme rose-pine')
+
+
+-----------------------------------------------------------
+-- LSP Gutter info 
+-- will probably break in future versions of nvim when name changes
+-----------------------------------------------------------
+local signs = {
+  Error = "Error",
+  Warn = "Warning",
+  Hint = "Hint",
+  Info = "Information",
+}
+
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  local nhl = "LspDiagnosticsDefault" .. icon
+  fn.sign_define(hl, { text = '', texthl = hl, numhl = nhl })
+end

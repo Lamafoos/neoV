@@ -44,4 +44,4 @@ dashboard.section.footer.val = {
   footer()
 }
 
-require('alpha').setup { dashboard.opts }
+require('alpha').setup( dashboard.config)

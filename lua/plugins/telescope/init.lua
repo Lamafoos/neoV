@@ -31,15 +31,16 @@ require('telescope').setup {
         respect_gitignore = false,
         mappings = {
           ["n"] = {
-            ["<C-a>"] = fb_actions.create_file,
-            ["<C-d>"] = fb_actions.remove_file
+            ["<C-c>"] = fb_actions.create,
+            ["<C-d>"] = fb_actions.remove,
+            ["<C-m>"] = fb_actions.move,
           }
         }
     }
   },
   -- file_sorter = require("telescope.sorters").get_fuzzy_file,
   -- generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
-  -- path_display = { "truncate" },
+  path_display = { "truncate" },
   set_env = { ["COLORTERM"] = "truecolor" }, 
 }
 

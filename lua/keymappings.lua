@@ -17,14 +17,21 @@ key_map("x", "au", ':lua require"treesitter-unit".select(true)<CR>', opts)
 key_map("o", "iu", ':<c-u>lua require"treesitter-unit".select()<CR>', opts)
 key_map("o", "au", ':<c-u>lua require"treesitter-unit".select(true)<CR>', opts)
 
--- shows any treesitter or syntax highlight groups under the cursor
-key_map("n", "<space>t", ":TSHighlightCapturesUnderCursor<CR>", opts)
+-- shows any treesitter or syntax highlight groups under the cursor. Not working.
+-- key_map("n", "<space>t", ":TSHighlightCapturesUnderCursor<CR>", opts)
 
 -- Move between Vimdows
-key_map("n", "<up>", "<C-w><up>", opts)
-key_map("n", "<down>", "<C-w><down>", opts)
-key_map("n", "<left>", "<C-w><left>", opts)
-key_map("n", "<right>", "<C-w><right>", opts)
+key_map("n", "<S-up>", "<C-w><up>", opts)
+key_map("n", "<S-down>", "<C-w><down>", opts)
+key_map("n", "<S-left>", "<C-w><left>", opts)
+key_map("n", "<S-right>", "<C-w><right>", opts)
+
+-- Move between Buffs
+key_map("n", "<C-up>", ":blast<CR>", opts)
+key_map("n", "<C-down>", ":bfirst<CR>", opts)
+key_map("n", "<C-left>", ":bprevious<CR>", opts)
+key_map("n", "<C-right>", ":bnext<CR>", opts)
+
 
 -- Toggle vim-tree
 key_map('n', '<C-b>', ':NvimTreeToggle<CR>', opts)
