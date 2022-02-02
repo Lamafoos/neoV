@@ -34,6 +34,7 @@ opt.linebreak = true          -- wrap on word boundary
 
 -- remove whitespace on save
 cmd [[au BufWritePre * :%s/\s\+$//e]]
+cmd [[au BufWritePost <buffer> lua require('lint').try_lint()]]
 
 -- highlight on yank
 exec([[
@@ -51,9 +52,9 @@ opt.tabstop = 4           -- 1 tab == 4 spaces
 opt.smartindent = true    -- autoindent new lines
 
 -- 2 spaces for selected filetypes
--- cmd [[
---   autocmd FileType xml,html,xhtml,css,scss,javascript,lua,yaml setlocal shiftwidth=2 tabstop=2
--- ]]
+cmd [[
+  autocmd FileType xml,html,xhtml,css,scss,javascript,lua,yaml setlocal shiftwidth=2 tabstop=2
+]]
 
 -----------------------------------------------------------
 -- Memory, CPU
@@ -71,6 +72,8 @@ g.nvim_tree_refresh_wait = 300
 g.nvim_tree_special_files = {}
 g.nvim_tree_respect_buf_cwd = 1
 g.nvim_tree_quit_on_open = 1
+g.nvim_tree_highlight_opened_files = 1
+g.nvim_tree_highlight_current_file = 1
 
 -----------------------------------------------------------
 -- Colorscheme

@@ -1,13 +1,19 @@
--- File explorer
-require'nvim-tree'.setup {
-  open_on_setup = true,
+-----------------------------------------------------------
+-- Nvum Tree
+-----------------------------------------------------------
+
+local nvim_tree = require('nvim-tree')
+
+nvim_tree.setup {
+  open_on_setup = false,
+  update_cwd = true,
   view = {
     width = 40,
-    number = true,
+    number = false,
     relativenumber = false,
     update_to_buf_dir = {
       enable = true,
-      auto_open = true,
+      auto_open = false,
     },
     update_focused_file = {
       enable      = true,
@@ -16,3 +22,4 @@ require'nvim-tree'.setup {
     },
   },
 }
+
