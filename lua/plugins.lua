@@ -92,11 +92,11 @@ return require('packer').startup(function()
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
 
-    -- Theme
-    use 'kyazdani42/nvim-web-devicons'
-    use({
-      'rose-pine/neovim',
-    	as = 'rose-pine',
-  })
+  -- Theme
+  use 'kyazdani42/nvim-web-devicons'
+  use({
+    'rose-pine/neovim',
+    as = 'rose-pine'
+})
 end
 )

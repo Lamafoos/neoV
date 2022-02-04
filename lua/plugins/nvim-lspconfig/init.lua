@@ -10,10 +10,37 @@ local capabilities = require 'plugins.nvim-lspconfig.capabilities'
 
 -- Language server list: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 local servers = { 
-  volar = {'volar'}, 
-  html = {'html'}, 
-  tsserver = {'tsserver'}, 
-  cssls = {'cssls'} 
+  volar = {cmd = { "volar-server", "--stdio" }},
+  html = { cmd = { "vscode-html-language-server", "--stdio" }},
+  tsserver = {
+    capabilities = capabilities,
+    on_attach = function(client, bufnr)
+    if client.config.flags then
+      client.config.flags.allow_incremental_sync = true
+    end
+    client.resolved_capabilities.document_formatting = false
+    client.resolved_capabilities.document_range_formatting = false
+    local ts_utils = require 'nvim-lsp-ts-utils'
+    ts_utils.setup {}
+    ts_utils.setup_client(client)
+    local opts = { silent = true }
+    vim.api.nvim_buf_set_keymap(
+      bufnr,
+      'n',
+      '<leader>ao',
+      ':TSLspOrganize<CR>',
+      opts
+    )
+    vim.api.nvim_buf_set_keymap(
+      bufnr,
+      'n',
+      '<leader>ai',
+      ':TSLspImportAll<CR>',
+      opts
+    )
+    on_attach_common(client)
+  end,},
+  cssls = { cmd = { "vscode-css-language-server", "--stdio" } }
 }
 
 for name, opts in pairs(servers) do
