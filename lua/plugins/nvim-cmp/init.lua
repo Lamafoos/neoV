@@ -50,8 +50,8 @@ cmp.setup {
 
   -- Completion settings
     completion = {
-      -- completeopt = 'menu,menuone,noselect',
-      keyword_length = 2
+      completeopt = 'menu,menuone,noselect',
+      keyword_length = 1
   },
   experimental = {
     ghost_text = true,

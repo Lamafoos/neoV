@@ -1,5 +1,5 @@
+-----------------------------------------------------------
 -- Take a gander at the setup.
---
 -----------------------------------------------------------
 -- Import the base
 -----------------------------------------------------------
@@ -17,36 +17,5 @@ require('plugins/nvim-cmp')
 require('plugins/nvim-lspconfig')
 require('plugins/nvim-tree')
 require('plugins/telescope')
-require('plugins/treesitter')
 require('plugins/vim-fugitive')
 require('plugins/nvim-lint')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

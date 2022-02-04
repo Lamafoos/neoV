@@ -10,8 +10,6 @@ local capabilities = require 'plugins.nvim-lspconfig.capabilities'
 
 -- Language server list: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 local servers = { 
-  volar = {cmd = { "volar-server", "--stdio" }},
-  html = { cmd = { "vscode-html-language-server", "--stdio" }},
   tsserver = {
     capabilities = capabilities,
     on_attach = function(client, bufnr)
@@ -20,7 +18,7 @@ local servers = {
     end
     client.resolved_capabilities.document_formatting = false
     client.resolved_capabilities.document_range_formatting = false
-    local ts_utils = require 'nvim-lsp-ts-utils'
+    local ts_utils = require('nvim-lsp-ts-utils')
     ts_utils.setup {}
     ts_utils.setup_client(client)
     local opts = { silent = true }
@@ -40,6 +38,8 @@ local servers = {
     )
     on_attach_common(client)
   end,},
+  volar = {cmd = { "volar-server", "--stdio" }},
+  html = { cmd = { "vscode-html-language-server", "--stdio" }},
   cssls = { cmd = { "vscode-css-language-server", "--stdio" } }
 }
 

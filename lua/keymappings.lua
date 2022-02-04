@@ -1,6 +1,11 @@
 local key_map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
+
+-- general
+key_map('n', 'H', '^', opts) -- start of line
+key_map('n', 'L', '^', opts) -- end of line
+
 -- Surround word under cursor w/ backticks (required vim-surround)
 key_map( "n", "<leader>`", "ysiW", opts )
 
@@ -48,6 +53,10 @@ key_map("n", "<CS-down>", ":tabfirst<CR>", opts)
 key_map("n", "<CS-left>", ":tabprevious<CR>", opts)
 key_map("n", "<CS-right>", ":tabnext<CR>", opts)
 key_map("n", "<CS-w>", ":tabclose<CR>", opts)
+
+-- Tabs
+key_map('n', '<leader>tn', ':tabnew<CR>', opts)
+key_map('n', '<leader>tc', ':tabclose<CR>', opts)
 
 
 -- Toggle vim-tree

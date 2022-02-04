@@ -36,13 +36,6 @@ return require('packer').startup(function()
     },
   }
 
-  -- Treesitter
-  use "p00f/nvim-ts-rainbow"
-      use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ":TSUpdate"
-    }
-
     -- Telescope Extensions
   use { "nvim-telescope/telescope-file-browser.nvim" }
     -- 
@@ -54,6 +47,7 @@ return require('packer').startup(function()
   }
 
   -- LSP
+  use { 'jose-elias-alvarez/nvim-lsp-ts-utils' } -- ts-utils
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
 

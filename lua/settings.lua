@@ -82,7 +82,6 @@ opt.termguicolors = true   -- use terminal colors
 g.rose_pine_variant = 'moon' -- moon variant
 cmd('colorscheme rose-pine')
 
-
 -----------------------------------------------------------
 -- LSP Gutter info 
 -- will probably break in future versions of nvim when name changes

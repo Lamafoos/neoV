@@ -1,2 +1,0 @@
--- Treesitter
-require('treesitter')
