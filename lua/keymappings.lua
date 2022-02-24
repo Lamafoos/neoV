@@ -25,12 +25,6 @@ key_map("o", "au", ':<c-u>lua require"treesitter-unit".select(true)<CR>', opts)
 -- shows any treesitter or syntax highlight groups under the cursor. Not working.
 -- key_map("n", "<space>t", ":TSHighlightCapturesUnderCursor<CR>", opts)
 
--- Write / Quit
-key_map("n", "<leader>w", ":w<CR>", opts)
-key_map("n", "<leader>wa", ":wa<CR>", opts)
-key_map("n", "<leader>q", ":q!<CR>", opts)
-key_map("n", "<leader>qa", ":qa!<CR>", opts)
-
 -- Split window 
 key_map("n", "<leader>v", ":vsplit<CR>", opts)
 key_map("n", "<leader>x", ":split<CR>", opts)

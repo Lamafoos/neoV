@@ -8,7 +8,8 @@
 	- <leader r> refresh NvimTree
 
 ## TODO
-	- add fuzzy finder in buffer
+    - change to vsnip
+    - get lint & formatting to work
 
 
 to find every occurrence in the whole file, with a prompt whether to
