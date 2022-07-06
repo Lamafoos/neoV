@@ -12,10 +12,13 @@ require('plugins')
 require('plugins/alpha-nvim')
 require('plugins/gitsigns')
 require('plugins/lualine')
-require('plugins/luasnip')
 require('plugins/nvim-cmp')
 require('plugins/nvim-lspconfig')
 require('plugins/nvim-tree')
 require('plugins/telescope')
 require('plugins/vim-fugitive')
 require('plugins/nvim-lint')
+-----------------------------------------------------------
+-- Theme
+-----------------------------------------------------------
+require('theme')

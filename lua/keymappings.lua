@@ -4,13 +4,13 @@ local opts = { noremap = true, silent = true }
 
 -- general
 key_map('n', 'H', '^', opts) -- start of line
-key_map('n', 'L', '^', opts) -- end of line
+key_map('n', 'L', '$', opts) -- end of line
 
 -- Surround word under cursor w/ backticks (required vim-surround)
-key_map( "n", "<leader>`", "ysiW", opts )
+key_map("n", "<leader>`", "ysiW", opts)
 
 -- REPLACE: delete inner word & replace with last yanked (including system)
-key_map("n", ",r", '"_diwhp', opts)
+key_map("n", ",r", '"_diwhp', opts) -- not working
 
 -- paste last thing yanked(not system copied), not deleted
 key_map("n", ",p", '"0p', opts)
@@ -25,7 +25,7 @@ key_map("o", "au", ':<c-u>lua require"treesitter-unit".select(true)<CR>', opts)
 -- shows any treesitter or syntax highlight groups under the cursor. Not working.
 -- key_map("n", "<space>t", ":TSHighlightCapturesUnderCursor<CR>", opts)
 
--- Split window 
+-- Split window
 key_map("n", "<leader>v", ":vsplit<CR>", opts)
 key_map("n", "<leader>x", ":split<CR>", opts)
 
@@ -62,8 +62,12 @@ key_map("n", "<space>ff", "<cmd>lua require 'telescope'.extensions.file_browser.
 -- Find recent
 key_map("n", "<space>fr", "<cmd>Telescope oldfiles prompt_prefix=🔍 <CR>", opts)
 -- Git branches
-key_map("n", "<space>fg", "<cmd>Telescope git_branches<CR>",opts)
+key_map("n", "<space>fg", "<cmd>Telescope git_branches<CR>", opts)
 -- Find buffer
-key_map("n", "<space>fb", "<cmd>Telescope buffers<CR>" , opts);
+key_map("n", "<space>fb", "<cmd>Telescope buffers<CR>", opts);
+
+-- Find in current file
+key_map("n", "<space>fc", "<cmd>Telescope current_buffer_fuzzy_find<CR>", opts);
+
 -- Find text in project
-key_map("n", "<space>fs", "<cmd>Telescope grep_string<CR>" , opts);
+key_map("n", "<space>fs", "<cmd>Telescope live_grep<CR>", opts);

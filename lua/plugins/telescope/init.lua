@@ -32,22 +32,23 @@ telescope.setup {
     },
 
     file_browser = {
-        files = true,
-        depth = false,
-        hidden = true,
-        respect_gitignore = false,
-        mappings = {
-          ["n"] = {
-            ["<C-c>"] = fb_actions.create,
-            ["<C-d>"] = fb_actions.remove,
-            ["<C-m>"] = fb_actions.move,
-          }
+      files = true,
+      depth = false,
+      hidden = true,
+      respect_gitignore = false,
+      mappings = {
+        ["n"] = {
+          ["<C-c>"] = fb_actions.create,
+          ["<C-d>"] = fb_actions.remove,
+          ["<C-m>"] = fb_actions.move,
+          ["<C-h>"] = fb_actions.goto_home_dir
         }
+      }
     }
   },
 
   path_display = { "truncate" },
-  set_env = { ["COLORTERM"] = "truecolor" }, 
+  set_env = { ["COLORTERM"] = "truecolor" },
 }
 
 telescope.load_extension('file_browser')

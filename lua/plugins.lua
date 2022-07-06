@@ -8,11 +8,11 @@ local fn = vim.fn
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
-    packer_bootstrap = fn.system({
-        'git', 'clone', 'https://github.com/wbthomason/packer.nvim',
-        install_path
-    })
-    execute 'packadd packer.nvim'
+  packer_bootstrap = fn.system({
+    'git', 'clone', 'https://github.com/wbthomason/packer.nvim',
+    install_path
+  })
+  execute 'packadd packer.nvim'
 end
 
 return require('packer').startup(function()
@@ -24,8 +24,8 @@ return require('packer').startup(function()
 
   -- Starpage
   use {
-  'goolord/alpha-nvim',
-  requires = { 'kyazdani42/nvim-web-devicons' },
+    'goolord/alpha-nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
   }
 
   -- File Explorer
@@ -36,11 +36,11 @@ return require('packer').startup(function()
     },
   }
 
-    -- Telescope Extensions
+  -- Telescope Extensions
   use { "nvim-telescope/telescope-file-browser.nvim" }
-    -- 
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-    -- Telescope
+  --
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
     requires = { 'nvim-lua/plenary.nvim' }
@@ -58,39 +58,40 @@ return require('packer').startup(function()
   use {
     'tpope/vim-fugitive',
     event = "UIEnter"
-	}
+  }
   use {
     "lewis6991/gitsigns.nvim",
     requires = { "nvim-lua/plenary.nvim" }
   }
 
   -- Completion
-  use {'L3MON4D3/LuaSnip'}
-	use { 'onsails/lspkind-nvim' }
+  use { 'L3MON4D3/LuaSnip' }
+  use { 'onsails/lspkind-nvim' }
   use {
-	'hrsh7th/nvim-cmp',
+    'hrsh7th/nvim-cmp',
     requires = {
-    {'hrsh7th/cmp-nvim-lsp'},
-		{'hrsh7th/cmp-path'},
-		{'hrsh7th/cmp-buffer'},
-		{'hrsh7th/cmp-cmdline'},
- 		{'saadparwaiz1/cmp_luasnip'}
-   },
-	}
- -- use { 'saadparwaiz1/cmp_luasnip' }
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'hrsh7th/cmp-path' },
+      { 'hrsh7th/cmp-buffer' },
+      { 'hrsh7th/cmp-cmdline' },
+      { 'saadparwaiz1/cmp_luasnip' }
+    },
+  }
+  -- use { 'saadparwaiz1/cmp_luasnip' }
 
 
   -- Statusline
   use {
     'nvim-lualine/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
   -- Theme
   use 'kyazdani42/nvim-web-devicons'
+
   use({
-    'rose-pine/neovim',
-    as = 'rose-pine'
-})
+    "catppuccin/nvim",
+    as = "catppuccin"
+  })
 end
 )

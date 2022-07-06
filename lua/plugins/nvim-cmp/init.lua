@@ -46,45 +46,46 @@ cmp.setup {
         fallback()
       end
     end
-    },
+  },
 
   -- Completion settings
-    completion = {
-      completeopt = 'menu,menuone,noselect',
-      keyword_length = 1
+  completion = {
+    completeopt = 'menu,menuone,noselect',
+    keyword_length = 1
   },
   experimental = {
     ghost_text = true,
   },
-  documentation = {
-    border = { "", "", "", "", "", "", "", "" },
+  window = {
+    documentation = {
+      border = { "", "", "", "", "", "", "", "" },
+    },
   },
   sources = {
     { name = 'luasnip' },
     { name = 'nvim_lsp' },
     { name = 'path' },
     { name = 'buffer' },
-		{ name = 'spell' },
+    { name = 'spell' },
   },
-	formatting = {
-		format = lspkind.cmp_format({
+  formatting = {
+    format = lspkind.cmp_format({
       with_text = true, -- show text alongside icons
       maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
 
-      before = function (entry, vim_item)
-      vim_item.kind = string.format("%s %s", lspkind.presets.default[vim_item.kind], vim_item.kind)
-      vim_item.menu = ({
-        nvim_lsp = "",
-        treesitter = "",
-        path = "",
-        buffer = "ь",
-        zsh = "",
-        luasnip = "",
-        spell = "",
-      })[entry.source.name]
+      before = function(entry, vim_item)
+        vim_item.kind = string.format("%s %s", lspkind.presets.default[vim_item.kind], vim_item.kind)
+        vim_item.menu = ({
+          nvim_lsp = "",
+          treesitter = "",
+          path = "",
+          buffer = "ь",
+          zsh = "",
+          luasnip = "",
+          spell = "",
+        })[entry.source.name]
         return vim_item
       end
     })
   },
 }
-
