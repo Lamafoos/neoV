@@ -32,7 +32,7 @@ opt.ignorecase = true -- ignore case letters when search
 opt.incsearch = true -- show partial matches // I think
 opt.smartcase = true -- ignore lowercase for the whole pattern
 opt.linebreak = true -- wrap on word boundary
-opt.termguicolors = true
+-- opt.termguicolors = true
 
 -- remove whitespace on save
 cmd [[au BufWritePre * :%s/\s\+$//e]]

@@ -88,10 +88,10 @@ return require('packer').startup(function()
 
   -- Theme
   use 'kyazdani42/nvim-web-devicons'
-
-  use({
-    "catppuccin/nvim",
-    as = "catppuccin"
-  })
+  use({ 'projekt0n/github-nvim-theme', as = "github-theme" })
+  -- use({
+  --   "catppuccin/nvim",
+  --   as = "catppuccin"
+  -- })
 end
 )
