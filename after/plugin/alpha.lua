@@ -1,9 +1,6 @@
 -----------------------------------------------------------
 -- Alpha dashboard config
 -----------------------------------------------------------
-require('functions')
-
-local alpha = require('alpha')
 local dashboard = require('alpha.themes.dashboard')
 
 -----------------------------------------------------------
@@ -27,7 +24,6 @@ dashboard.section.buttons.val = {
   dashboard.button("e", "New file", ":ene <BAR> startinsert <CR>"),
   dashboard.button('f', 'Find file', ':NvimTreeOpen<CR>'),
   dashboard.button("v", "Neovim config", ":e ~/.config/nvim/init.lua<CR>"),
-  dashboard.button('u', 'Update plugins', ':PackerUpdate<CR>'),
   dashboard.button("q", "Quit neovim", ":qa<CR>"),
 }
 

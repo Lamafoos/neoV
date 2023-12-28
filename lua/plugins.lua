@@ -1,97 +1,104 @@
-----------
--- API ---
-----------
-local execute = vim.api.nvim_command
-local fn = vim.fn
-----------
+-----------------------------------------------------------
+-- Plugins ------------------------------------------------
+-----------------------------------------------------------
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+local uv = vim.uv or vim.loop
 
-local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({
-    'git', 'clone', 'https://github.com/wbthomason/packer.nvim',
-    install_path
+-- Auto-install lazy.nvim if not present
+if not uv.fs_stat(lazypath) then
+  print('Installing lazy.nvim....')
+  vim.fn.system({
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable', -- latest stable release
+    lazypath,
   })
-  execute 'packadd packer.nvim'
+  print('Done.')
 end
 
-return require('packer').startup(function()
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+vim.opt.rtp:prepend(lazypath)
 
-  -- Performance
-  use "nathom/filetype.nvim"
+local plugins = {
+{'nvim-lua/plenary.nvim'},
 
-  -- Starpage
-  use {
-    'goolord/alpha-nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' },
-  }
+-- File Explorer
+{
+'kyazdani42/nvim-tree.lua',
+  requires = {
+    'kyazdani42/nvim-web-devicons',
+  },
+},
+-- Telescope Extensions
+{ "nvim-telescope/telescope-file-browser.nvim" },
+{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
 
-  -- File Explorer
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons',
-    },
-  }
+-- Telescope
+{
+  'nvim-telescope/telescope.nvim', tag = '0.1.5',
+  requires = { {'nvim-lua/plenary.nvim'} }
+},
 
-  -- Telescope Extensions
-  use { "nvim-telescope/telescope-file-browser.nvim" }
-  --
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  -- Telescope
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = { 'nvim-lua/plenary.nvim' }
-  }
+-- Harpoon
+{
+  "ThePrimeagen/harpoon",
+  branch = "harpoon2",
+  requires = { {"nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim"} },
+},
 
-  -- LSP
-  use { 'jose-elias-alvarez/nvim-lsp-ts-utils' } -- ts-utils
-  use 'neovim/nvim-lspconfig'
-  use 'williamboman/nvim-lsp-installer'
+-- UndoTree
+{'mbbill/undotree'},
 
-  -- Linter
-  use 'mfussenegger/nvim-lint'
+-- Treesitter
+{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
 
-  -- Git
-  use {
-    'tpope/vim-fugitive',
-    event = "UIEnter"
-  }
-  use {
-    "lewis6991/gitsigns.nvim",
-    requires = { "nvim-lua/plenary.nvim" }
-  }
+-- LSP Support
+{'williamboman/mason.nvim'},
+{'williamboman/mason-lspconfig.nvim'},
+{'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
+{'neovim/nvim-lspconfig'},
+{'simrat39/rust-tools.nvim'},
 
-  -- Completion
-  use { 'L3MON4D3/LuaSnip' }
-  use { 'onsails/lspkind-nvim' }
-  use {
-    'hrsh7th/nvim-cmp',
-    requires = {
-      { 'hrsh7th/cmp-nvim-lsp' },
-      { 'hrsh7th/cmp-path' },
-      { 'hrsh7th/cmp-buffer' },
-      { 'hrsh7th/cmp-cmdline' },
-      { 'saadparwaiz1/cmp_luasnip' }
-    },
-  }
-  -- use { 'saadparwaiz1/cmp_luasnip' }
+-- Completion
+{'hrsh7th/cmp-nvim-lsp'},
+{'hrsh7th/nvim-cmp'},
+{'L3MON4D3/LuaSnip'},
+{'onsails/lspkind-nvim'},
 
+-- Autocompletion
+{
+  'hrsh7th/nvim-cmp',
+  dependencies = {
+    {'L3MON4D3/LuaSnip'}
+  },
+},
+-- Git
+{'tpope/vim-fugitive'},
+{
+  'kdheepak/lazygit.nvim',
+  dependencies = {
+    {"nvim-lua/plenary.nvim"}
+  },
+},
+{'lewis6991/gitsigns.nvim'},
 
-  -- Statusline
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  }
+-- Theme
+{'kyazdani42/nvim-web-devicons'},
+{ 'projekt0n/github-nvim-theme', as = "github-theme" },
+-- {'marko-cerovac/material.nvim'},
+{"folke/trouble.nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  opts = {},
+},
+{'nvim-lualine/lualine.nvim'},
+{
+  'goolord/alpha-nvim',
+  config = function ()
+      require'alpha'.setup(require'alpha.themes.dashboard'.config)
+  end
+};
+{'rcarriga/nvim-notify'}
+}
 
-  -- Theme
-  use 'kyazdani42/nvim-web-devicons'
-  use({ 'projekt0n/github-nvim-theme', as = "github-theme" })
-  -- use({
-  --   "catppuccin/nvim",
-  --   as = "catppuccin"
-  -- })
-end
-)
+require("lazy").setup(plugins)

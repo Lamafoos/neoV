@@ -1,13 +1,18 @@
 -----------------------------------------------------------
--- Nvum Tree
+-- Nvim Tree
 -----------------------------------------------------------
 
 local nvim_tree = require('nvim-tree')
+local g = vim.g -- global variables
+
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
+g.nvim_tree_refresh_wait = 200
+g.nvim_tree_highlight_current_file = 1
 
 nvim_tree.setup {
   respect_buf_cwd = true,
 
-  open_on_setup = false,
   update_cwd = true,
   actions = {
     open_file = {
@@ -16,13 +21,14 @@ nvim_tree.setup {
   },
   view = {
     width = 40,
-    number = false,
-    relativenumber = false,
-    signcolumn = "yes",
+    -- number = false,
+    -- relativenumber = false,
+    -- signcolumn = "yes",
   },
 
   update_focused_file = {
-    enable      = true,
+    enable = true,
+    update_root = true,
     update_cwd  = true,
     ignore_list = {}
   },
