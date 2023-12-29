@@ -93,6 +93,8 @@ vim.keymap.set("n", "Q", "<nop>")
 
 -- switch project
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+
+-- format
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format) -- format
 
 -- quickfix

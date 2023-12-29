@@ -15,7 +15,6 @@ g.mapleader = " "
 --   g.mapleader = '§' -- change leader to a strange symbol
 -- end
 opt.mouse = 'a' -- enable mouse support
--- opt.clipboard = 'unnamedplus' -- copy/paste to system clipboard
 opt.swapfile = false -- don't use swapfile
 opt.backup = false -- no backup
 -- opt.undodir = os.getenv("Home") .."/.vim/undodir" -- 
@@ -29,7 +28,6 @@ opt.updatetime = 50
 opt.number = true -- show line number
 opt.relativenumber = true -- show relative number
 
--- opt.showmatch = true -- highlight matching parenthesis
 -- opt.foldmethod = 'marker' -- enable folding (default 'foldmarker')
 -- opt.colorcolumn = '80'        -- line lenght marker at 80 columns
 -- opt.splitright = true -- vertical split to the right
@@ -66,20 +64,3 @@ opt.hidden = true -- enable background buffers
 opt.history = 300 -- remember n lines in history
 opt.lazyredraw = true -- faster scrolling
 opt.synmaxcol = 240 -- max column for syntax highlight
-
------------------------------------------------------------
--- LSP Gutter info
--- will probably break in future versions of nvim when name changes
------------------------------------------------------------
--- local signs = {
---   Error = "Error",
---   Warn = "Warning",
---   Hint = "Hint",
---   Info = "Information",
--- }
-
--- for type, icon in pairs(signs) do
---   local hl = "DiagnosticSign" .. type
---   local nhl = "LspDiagnosticsDefault" .. icon
---   fn.sign_define(hl, { text = '', texthl = hl, numhl = nhl })
--- end
