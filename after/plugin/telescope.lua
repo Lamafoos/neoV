@@ -8,20 +8,21 @@ key_set('n', '<leader>ps', function ()
   
 end) 
 key_set('n', '<C-p>', builtin.git_files, {})
+key_set('n', '<C-b>',  builtin.buffers, {})
 
--- telescope.setup {
---   defaults = {
+telescope.setup {
+  defaults = {
 --     initial_mode = "insert",
 --     file_ignore_patterns = { ".git/", "node_modules/" },
 --     sorting_strategy = "ascending",
 --     color_devicons = true,
 --     -- path_display = "truncate",
---     border = {},
+    -- border = {},
 --     preview = {
 --       timeout = 500,
 --     },
---     file_previewer = require("telescope.previewers").vim_buffer_cat.new,
---   },
+    file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+  },
 --   pickers = {
 --     find_files = {
 --       hidden = true,
@@ -35,25 +36,25 @@ key_set('n', '<C-p>', builtin.git_files, {})
 --       case_mode = "smart_case",
 --     },
 
---     file_browser = {
---       files = true,
---       depth = false,
---       hidden = true,
---       respect_gitignore = false,
---       -- mappings = {
---       --   ["n"] = {
---       --     ["<C-c>"] = fb_actions.create,
---       --     ["<C-d>"] = fb_actions.remove,
---       --     ["<C-m>"] = fb_actions.move,
---       --     ["<C-h>"] = fb_actions.goto_home_dir
---       --   }
---       -- }
---     }
+    file_browser = {
+      files = true,
+      depth = false,
+      hidden = true,
+      respect_gitignore = false,
+      -- mappings = {
+      --   ["n"] = {
+      --     ["<C-c>"] = fb_actions.create,
+      --     ["<C-d>"] = fb_actions.remove,
+      --     ["<C-m>"] = fb_actions.move,
+      --     ["<C-h>"] = fb_actions.goto_home_dir
+      --   }
+      -- }
+    }
 --   },
 
 --   path_display = { "truncate" },
 --   set_env = { ["COLORTERM"] = "truecolor" },
--- }
+}
 
 telescope.load_extension('file_browser')
 -- telescope.load_extension('fzf')

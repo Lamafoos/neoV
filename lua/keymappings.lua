@@ -52,7 +52,7 @@ local set = vim.keymap.set
 
 
 -- -- Toggle vim-tree
-key_map('n', '<C-b>', ':NvimTreeToggle<CR>', opts)
+key_map('n', '<leader>t', ':NvimTreeToggle<CR>', opts)
 
 -- -- FILES
 -- -- Find file
@@ -71,40 +71,40 @@ key_map('n', '<C-b>', ':NvimTreeToggle<CR>', opts)
 -- key_map("n", "<space>fs", "<cmd>Telescope live_grep<CR>", opts);
 
 -- Move lines
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "<C-down>", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-vim.keymap.set("v", "<C-up>", ":m '<-2<CR>gv=gv")
+set("v", "J", ":m '>+1<CR>gv=gv")
+set("v", "<C-down>", ":m '>+1<CR>gv=gv")
+set("v", "K", ":m '<-2<CR>gv=gv")
+set("v", "<C-up>", ":m '<-2<CR>gv=gv")
 
 -- Keep cursor sane
-vim.keymap.set("n", "J", "mzJ`z") 
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+set("n", "J", "mzJ`z") 
+set("n", "<C-d>", "<C-d>zz")
+set("n", "<C-u>", "<C-u>zz")
+set("n", "n", "nzzzv")
+set("n", "N", "Nzzzv")
 
-vim.keymap.set("x", "<leader>p", [["_dP]]) -- overwrite without copying
+set("x", "<leader>p", [["_dP]]) -- overwrite without copying
 
 -- Yank to system clipboard
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
+set({"n", "v"}, "<leader>y", [["+y]])
+set("n", "<leader>Y", [["+Y]])
 
-vim.keymap.set("n", "Q", "<nop>")
+set("n", "Q", "<nop>")
 
 -- switch project
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 -- format
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format) -- format
+set("n", "<leader>f", vim.lsp.buf.format) -- format
 
 -- quickfix
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+set("n", "<C-k>", "<cmd>cnext<CR>zz")
+set("n", "<C-j>", "<cmd>cprev<CR>zz")
+set("n", "<leader>k", "<cmd>lnext<CR>zz")
+set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- replace the word your on
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- exit
-vim.keymap.set("i", "<C-c>", "<Esc>")
+set("i", "<C-c>", "<Esc>")

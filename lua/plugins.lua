@@ -92,12 +92,12 @@ local plugins = {
   opts = {},
 },
 {'nvim-lualine/lualine.nvim'},
-{
-  'goolord/alpha-nvim',
-  config = function ()
-      require'alpha'.setup(require'alpha.themes.dashboard'.config)
-  end
-};
+-- {
+--   'goolord/alpha-nvim',
+--   config = function ()
+--       require'alpha'.setup(require'alpha.themes.dashboard'.config)
+--   end
+-- };
 {'rcarriga/nvim-notify'}
 }
 

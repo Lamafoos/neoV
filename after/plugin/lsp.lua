@@ -20,7 +20,7 @@ end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = { 
+  ensure_installed = {
     "lua_ls",
     "tsserver",
     "cssls",
@@ -33,20 +33,9 @@ require('mason-lspconfig').setup({
   },
 })
 
-
------------------------------------------------------------
--- LSP Gutter info
--- will probably break in future versions of nvim when name changes
----------------------------------------------------------
--- local signs = {
---   Error = "Error",
---   Warn = "Warning",
---   Hint = "Hint",
---   Info = "Information",
--- }
-
--- for type, icon in pairs(signs) do
---   local hl = "DiagnosticSign" .. type
---   local nhl = "LspDiagnosticsDefault" .. icon
---   vim.fn.sign_define(hl, { text = '', texthl = hl, numhl = nhl })
--- end
+lsp_zero.set_sign_icons({
+    error = "",
+    warning = "",
+    hint = "",
+    information = ""
+})
