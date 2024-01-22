@@ -58,13 +58,25 @@ local plugins = {
 {'williamboman/mason-lspconfig.nvim'},
 {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
 {'neovim/nvim-lspconfig'},
-{'simrat39/rust-tools.nvim'},
+{
+  'mrcjkb/rustaceanvim',
+  version = '^3',
+  ft = { 'rust' },
+},
 
 -- Completion
 {'hrsh7th/cmp-nvim-lsp'},
 {'hrsh7th/nvim-cmp'},
-{'L3MON4D3/LuaSnip'},
+{'hrsh7th/cmp-buffer'},
+{'hrsh7th/cmp-path'},
+
+-- Snippets
 {'onsails/lspkind-nvim'},
+{
+  'L3MON4D3/LuaSnip',
+  dependencies = { "rafamadriz/friendly-snippets" },
+},
+{ "rafamadriz/friendly-snippets" },
 
 -- Autocompletion
 {
@@ -86,7 +98,6 @@ local plugins = {
 -- Theme
 {'kyazdani42/nvim-web-devicons'},
 { 'projekt0n/github-nvim-theme', as = "github-theme" },
--- {'marko-cerovac/material.nvim'},
 {"folke/trouble.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   opts = {},

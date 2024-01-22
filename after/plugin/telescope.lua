@@ -15,7 +15,7 @@ telescope.setup {
 --     initial_mode = "insert",
 --     file_ignore_patterns = { ".git/", "node_modules/" },
 --     sorting_strategy = "ascending",
---     color_devicons = true,
+    color_devicons = true,
 --     -- path_display = "truncate",
     -- border = {},
 --     preview = {
@@ -23,11 +23,11 @@ telescope.setup {
 --     },
     file_previewer = require("telescope.previewers").vim_buffer_cat.new,
   },
---   pickers = {
---     find_files = {
---       hidden = true,
---     }
---   },
+  pickers = {
+    find_files = {
+      hidden = true,
+    }
+  },
 --   extensions = {
 --     fzf = {
 --       fuzzy = true,
@@ -49,11 +49,11 @@ telescope.setup {
       --     ["<C-h>"] = fb_actions.goto_home_dir
       --   }
       -- }
-    }
+    },
 --   },
 
---   path_display = { "truncate" },
---   set_env = { ["COLORTERM"] = "truecolor" },
+  path_display = { "truncate" },
+  set_env = { ["COLORTERM"] = "truecolor" },
 }
 
 telescope.load_extension('file_browser')
